@@ -1,5 +1,9 @@
 # Final Project
 
+## Team members 
+- Barrak Babtain ( Team leader )
+- Abdulaziz Alloughani
+
 ## Project Requirements and Details
 
 - Can be found [here](https://malmarz.netlify.app/en/courses/350/final-project/)
