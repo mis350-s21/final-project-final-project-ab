@@ -1,8 +1,6 @@
 from django.db import models
 
 # Create your models here.
-<<<<<<< Updated upstream
-=======
 
 class Book(models.Model): 
 
@@ -19,4 +17,5 @@ class Book(models.Model):
     Cart = models.IntegerField(choices=CART, default=0)
 
 # this is a test
->>>>>>> Stashed changes
+# part 2
+
