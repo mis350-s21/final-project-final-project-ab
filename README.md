@@ -1,7 +1,7 @@
 # Final Project
 
 ## Team members 
-- Barrak Babtain ( Team leader )
+- Barrak Al-Babtain ( Team leader )
 - Abdulaziz Alloughani
 
 ## Project Requirements and Details
