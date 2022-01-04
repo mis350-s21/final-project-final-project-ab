@@ -21,6 +21,7 @@ class Book(models.Model):
 
 class Author(models.Model):
     Author_name = models.CharField(max_length=50 ,unique=True )
+    book = models.ForeignKey('Book' , on_delete=models.CASCADE)
 
 class Customer(models.Model):
     customer_name = models.CharField(max_length=50 , null=False)

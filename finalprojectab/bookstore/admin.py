@@ -4,8 +4,12 @@ from .models import Book , Author , Customer
 
 # Register your models here.
 
+class AuthorInLine(admin.TabularInline):
+    model = Author
+
 class BookAdmin(admin.ModelAdmin):
-    list_display= ("price" , "name" , "slug")
+    list_display= ("name" , "price" , "available")
+    inlines = [AuthorInLine , ]
 
 
 class CustomerAdmin(admin.ModelAdmin):
