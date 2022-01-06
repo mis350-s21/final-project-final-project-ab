@@ -18,9 +18,9 @@
         {% for x in all_books_list %}
             <tr>
                 <td>{{ x.category }}</td>
-                <td>{{ x.name }}</td>
+                <td><a href="book/{{x.slug}}/">{{ x.name }}</a></td>
                 <td>{{ x.description }}</td>
-                <td>{{ x.price }}</td>
+                <td>${{ x.price }}</td>
                 <td >{{ x.available }}</td>
             </tr>
         {% endfor %}

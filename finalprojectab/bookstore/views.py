@@ -29,9 +29,8 @@ def unavailable_books_list(request):
     return render(request , 'books_list.html' , data)
 
 def books_list_Category(request , s):
+    data ={}
     books = Book.objects.get(slug = s)
-    data = {
-        'slug_book' : books,
-    }
+    data['book_details'] = books
     
     return render(request , 'book_details.html' , data)
