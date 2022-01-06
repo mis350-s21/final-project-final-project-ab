@@ -11,26 +11,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-
-            name='Book',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100, unique=True)),
-                ('slug', models.SlugField(max_length=100, unique=True)),
-                ('body', models.TextField()),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('Cart', models.IntegerField(choices=[(0, 'Not in Cart'), (1, 'In Cart')], default=0)),
-            ],
-        ),
-            name='Author',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Author_name', models.CharField(max_length=50, unique=True)),
-            ],
-        ),
-        migrations.CreateModel(
-
             name='Book',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -53,7 +33,6 @@ class Migration(migrations.Migration):
                 ('customer_address', models.CharField(max_length=100)),
             ],
         ),
-
         migrations.CreateModel(
             name='Author',
             fields=[
@@ -63,3 +42,4 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+    
