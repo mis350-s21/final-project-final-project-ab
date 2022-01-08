@@ -9,4 +9,6 @@ urlpatterns = [
     path('unavailable_books/', views.unavailable_books_list),
     path('book/<str:s>/', views.books_list_Category),
     path('contact_us/' , views.contact_us),
+    path('order/' , views.order , name= "order" ),
+    path('thankyou/' , views.thankyou , name = "thankyou" ) , 
 ]

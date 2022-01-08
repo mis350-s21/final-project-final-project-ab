@@ -52,7 +52,17 @@ class Contact_us(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     preferred_time =models.IntegerField(choices=TIME , default=0)
 
-
+class Order(models.Model):
+    METHOD = (
+        (0 , "cash on delivery"),
+        (1 , "online payment (you will receive it a text)")
+    )
+    customer_name = models.CharField(max_length=50 , null=False)
+    email = models.EmailField(null=False)
+    customer_num = models.IntegerField(null=False)
+    address = models.CharField(max_length= 100 , null=False)
+    payment = models.IntegerField(choices=METHOD , default= 0 )
+    created_on = models.DateTimeField(auto_now_add=True)
 # this is a test
 # part 2
 

@@ -13,3 +13,7 @@ class Contact_usForm(forms.ModelForm):
         model = models.Contact_us
         fields = ["name" , "email" , "phone_num" , "problem" , "preferred_time"]
 
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = models.Order
+        fields = ["customer_name" , "email" , "customer_num" , "address"  , "payment" ]

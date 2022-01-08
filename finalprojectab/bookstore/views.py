@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 
 from .models import Book
-from .forms import RequestForm , Contact_usForm
+from .forms import OrderForm, RequestForm , Contact_usForm
 # Create your views here.
 
 def greeting(request):
@@ -50,4 +50,18 @@ def contact_us(request):
     data = {
         'form' : cu ,
     }
-    return render(request , 'contact_us.html' , data)
+    return render(request , 'contact_us.html' , data) 
+
+def order(request):
+    ord = OrderForm(request.POST or None)
+    if ord.is_valid():
+        ord.save()
+        return redirect("thankyou")
+    data = {
+        'form' : ord ,
+    }
+    return render(request , 'order.html' , data)
+
+def thankyou(request): 
+    data={}
+    return render(request , 'thankyou.html' , data)
