@@ -10,8 +10,7 @@ class Book(models.Model):
         (1,"In Cart"),
     )
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+
     Cart = models.IntegerField(choices=CART, default=0)
     category = models.CharField(max_length=50 , null=False)
     name = models.CharField(max_length=200, null=False , unique=True)
