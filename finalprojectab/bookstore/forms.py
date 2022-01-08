@@ -12,4 +12,4 @@ class Contact_usForm(forms.ModelForm):
     class Meta:
         model = models.Contact_us
         fields = ["name" , "email" , "phone_num" , "problem" , "preferred_time"]
-        
+

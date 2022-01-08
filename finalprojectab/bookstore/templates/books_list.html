@@ -2,7 +2,7 @@
 <head>
 </head>
     <body>
-        <table border=1>
+        <table border=1 >
             <tr>
                 <td colspan=6 align="center">
                     <h2>BOOKS</h2>
@@ -20,7 +20,7 @@
                 <td>{{ x.category }}</td>
                 <td><a href="/bookstore/book/{{x.slug}}">{{ x.name }}</a></td>
                 <td>{{ x.description }}</td>
-                <td>{{ x.price }}</td>
+                <td>${{ x.price }}</td>
                 <td >{{ x.available }}</td>
             </tr>
         {% endfor %}

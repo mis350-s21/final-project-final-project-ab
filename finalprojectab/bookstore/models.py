@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.fields import IntegerField
+from django.forms.fields import EmailField
 
 
 # Create your models here.
@@ -50,6 +51,8 @@ class Contact_us(models.Model):
     problem = models.TextField(null=False)
     created_on = models.DateTimeField(auto_now_add=True)
     preferred_time =models.IntegerField(choices=TIME , default=0)
+
+
 # this is a test
 # part 2
 
