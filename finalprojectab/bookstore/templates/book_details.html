@@ -1,7 +1,29 @@
 <html>
-    <head>Book</head>
-
-    {%for x in slug_book%}
-    {{x.title}}
-    {%endfor%}
+<head>
+</head>
+    <body>
+        <table border=1>
+            <tr>
+                <td colspan=6 align="center">
+                    <h2>BOOKS</h2>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" >Category</td>
+                <td align="center">Name</td>
+                <td align="center">Description</td>
+                <td align="center">Price</td>
+                <td align="center">available</td>
+            </tr>
+            <tr>
+                <td>{{ slug_book.category }}</td>
+                <td>{{ slug_book.name }}</td>
+                <td>{{ slug_book.description }}</td>
+                <td>{{ slug_book.price }}</td>
+                <td>{{ slug_book.available }}</td>
+            </tr>
+        </table>
+        <BR>
+        
+    </body>
 </html>
