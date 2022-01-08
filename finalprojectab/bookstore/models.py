@@ -52,7 +52,12 @@ class Contact_us(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     preferred_time =models.IntegerField(choices=TIME , default=0)
 
-
+class Review(models.Model):
+    review = models.TextField()
+    author = models.CharField(max_length=100 , blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey('Book', on_delete=models.CASCADE) 
 # this is a test
 # part 2
 

@@ -13,3 +13,10 @@ class Contact_usForm(forms.ModelForm):
         model = models.Contact_us
         fields = ["name" , "email" , "phone_num" , "problem" , "preferred_time"]
 
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = models.Review
+        fields = ['review', 'author', 'email', 'post',]
+        widgets = {
+            'post': forms.HiddenInput(),
+        }

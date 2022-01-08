@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Book , Author, Contact_us , Customer, Request
+from .models import Book , Author, Contact_us , Customer, Request, Review
 
 # Register your models here.
 
@@ -21,7 +21,11 @@ class RequestAdmin(admin.ModelAdmin):
 class Contact_usAdmin(admin.ModelAdmin):
     list_display = ("name" , "email" , "phone_num" , "problem" , "created_on" , "preferred_time")
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('review', 'author', 'email', 'post',)
+
 admin.site.register(Book , BookAdmin)
 admin.site.register(Customer , CustomerAdmin)
 admin.site.register(Request , RequestAdmin)
 admin.site.register(Contact_us , Contact_usAdmin)
+admin.site.register(Review , ReviewAdmin)
