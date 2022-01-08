@@ -1,7 +1,38 @@
-<html>
-    <head>Book</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<head>Book</head>
 
     {%for x in slug_book%}
     {{x.title}}
     {%endfor%}
+<body>
+    
+</body>
+{% if review %}
+<h2>Review:</h2>
+<ul>
+    {% for c in book.review_set.all %}
+    <li>
+        {{ c.review }} by {{ c.author }} posted {{ c.created_on|timesince }} ago
+    </li>
+<br>
+    the post is : {{ c.book.title }}
+    {% endfor %}
+</ul>
+{% else %}
+<h4>No reviews yet..</h4>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Review">
+</form>
+</body>
 </html>
