@@ -8,4 +8,5 @@ urlpatterns = [
     path('available_books/', views.available_books_list),
     path('unavailable_books/', views.unavailable_books_list),
     path('book/<str:s>/', views.books_list_Category),
+    path('contact_us/' , views.contact_us),
 ]

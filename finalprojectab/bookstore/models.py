@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import IntegerField
 
 
 # Create your models here.
@@ -36,6 +37,19 @@ class Request(models.Model):
     customer_email = models.EmailField()
     customer_num = models.IntegerField(null=False)
     book_request = models.CharField(max_length=100 , null=False)
+
+class Contact_us(models.Model):
+    TIME = (
+        (0 , "8 AM to 12PM"),
+        (1 , "12 PM to 4 PM"), 
+        (2 , "4 PM to 8 PM"),
+    )
+    name = models.CharField(max_length=50 , null=False)
+    email = models.EmailField(null=False)
+    phone_num = models.IntegerField(null=False)
+    problem = models.TextField(null=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    preferred_time =models.IntegerField(choices=TIME , default=0)
 # this is a test
 # part 2
 
