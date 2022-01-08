@@ -35,7 +35,11 @@ class Customer(models.Model):
     customer_num = models.IntegerField(null=False)
     customer_address = models.CharField(max_length= 100 , null=False)
 
-
+class Request(models.Model):
+    customer_name = models.CharField(max_length=50 , null=False)
+    customer_email = models.EmailField()
+    customer_num = models.IntegerField(null=False)
+    book_request = models.CharField(max_length=100 , null=False)
 # this is a test
 # part 2
 
