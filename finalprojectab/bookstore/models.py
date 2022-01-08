@@ -36,7 +36,12 @@ class Customer(models.Model):
     customer_num = models.IntegerField(null=False)
     customer_address = models.CharField(max_length= 100 , null=False)
 
-
+class Review(models.Model):
+    review = models.TextField()
+    author = models.CharField(max_length=100 , blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey('Book', on_delete=models.CASCADE) 
 # this is a test
 # part 2
 

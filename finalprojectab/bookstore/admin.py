@@ -1,14 +1,16 @@
 from django.contrib import admin
-from .models import Book , Author , Customer
+from .models import Book , Author , Customer, Review
 
 # Register your models here.
+class ReviewInline(admin.TabularInline):
+    model = Review
 
 class AuthorInLine(admin.TabularInline):
     model = Author
 
 class BookAdmin(admin.ModelAdmin):
     list_display= ("name" , "price" , "available")
-    inlines = [AuthorInLine , ]
+    inlines = [AuthorInLine , ReviewInline]
 
 
 class CustomerAdmin(admin.ModelAdmin):
