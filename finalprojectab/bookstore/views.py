@@ -1,10 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .models import Book
+from .forms import RequestForm
 # Create your views here.
 
 def greeting(request):
     data={}
+    br = RequestForm(request.POST or None )
+    if br.is_valid():
+        br.save()
+        return redirect("greeting")
+    data = {'form' : br}
     return render(request , 'greeting.html' , context=data)
 
 def all_books_list(request):
