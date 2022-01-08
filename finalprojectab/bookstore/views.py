@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 
 from .models import Book
-from .forms import RequestForm
+from .forms import RequestForm , Contact_usForm
 # Create your views here.
 
 def greeting(request):
@@ -41,3 +41,13 @@ def books_list_Category(request , s):
     }
     
     return render(request , 'book_details.html' , data)
+
+def contact_us(request):
+    cu = Contact_usForm(request.POST or None)
+    if cu.is_valid():
+        cu.save()
+        return redirect("greeting")
+    data = {
+        'form' : cu ,
+    }
+    return render(request , 'contact_us.html' , data)
