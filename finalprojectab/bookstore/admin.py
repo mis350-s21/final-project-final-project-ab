@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Book , Author , Customer, Review
+
+from .models import Book , Author, Contact_us , Customer, Order, Request, Review
 
 # Register your models here.
 class ReviewInline(admin.TabularInline):
@@ -16,7 +17,17 @@ class BookAdmin(admin.ModelAdmin):
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ("customer_name" , "customer_email" , "customer_num" , "customer_address")
 
+class RequestAdmin(admin.ModelAdmin):
+    list_display = ("customer_name" , "customer_email" , "customer_num" , "book_request")
 
+class Contact_usAdmin(admin.ModelAdmin):
+    list_display = ("name" , "email" , "phone_num" , "problem" , "created_on" , "preferred_time")
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ("customer_name" , "email" , "customer_num" , "address" , "payment" , "created_on")
 
 admin.site.register(Book , BookAdmin)
 admin.site.register(Customer , CustomerAdmin)
+admin.site.register(Request , RequestAdmin)
+admin.site.register(Contact_us , Contact_usAdmin)
+admin.site.register(Order , OrderAdmin)

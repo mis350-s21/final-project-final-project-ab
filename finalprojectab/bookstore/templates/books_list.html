@@ -2,7 +2,7 @@
 <head>
 </head>
     <body>
-        <table border=1>
+        <table border=1 >
             <tr>
                 <td colspan=6 align="center">
                     <h2>BOOKS</h2>
@@ -18,9 +18,9 @@
         {% for x in all_books_list %}
             <tr>
                 <td>{{ x.category }}</td>
-                <td>{{ x.name }}</td>
+                <td><a href="/bookstore/book/{{x.slug}}">{{ x.name }}</a></td>
                 <td>{{ x.description }}</td>
-                <td>{{ x.price }}</td>
+                <td>${{ x.price }}</td>
                 <td >{{ x.available }}</td>
             </tr>
         {% endfor %}
