@@ -9,5 +9,5 @@ class ReviewForm(forms.Modelform):
         model = models.Review
         fields = ['review', 'author', 'email', 'post',]
         widgets = {
-            'post': forms.HiddenInput(),
+            'books': forms.HiddenInput(),
         }

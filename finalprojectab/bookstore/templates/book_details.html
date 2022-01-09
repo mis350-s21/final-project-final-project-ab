@@ -17,21 +17,21 @@
 {% if review %}
 <h2>Review:</h2>
 <ul>
-    {% for c in books.review_set.all %}
+    {% for data in books.review_set.all %}
     <li>
-        {{ c.review }} by {{ c.author }} posted {{ c.created_on|timesince }} ago
+        {{ data.review }} by {{ data.author }} posted {{ data.created_on|timesince }} ago
     </li>
 <br>
-    the post is : {{ c.books.title }}
+    the post is : {{ data.books.title }}
     {% endfor %}
 </ul>
 {% else %}
 <h4>No reviews yet..</h4>
 {% endif %}
 
-<form action="" method="books">
+<form action="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_books }}
     <input type="submit" value="Add Review">
 </form>
 </body>
