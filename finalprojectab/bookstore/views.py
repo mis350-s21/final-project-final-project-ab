@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
 
+from django.contrib.auth.decorators import login_required
+
 from .models import Book, Review
 from .forms import OrderForm, RequestForm , Contact_usForm , ReviewForm
 # Create your views here.
@@ -62,6 +64,7 @@ def contact_us(request):
     }
     return render(request , 'contact_us.html' , data) 
 
+@login_required
 def order(request):
     ord = OrderForm(request.POST or None)
     if ord.is_valid():
