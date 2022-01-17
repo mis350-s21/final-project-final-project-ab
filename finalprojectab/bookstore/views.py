@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from .models import Book
-from .forms import OrderForm, RequestForm , Contact_usForm 
+
 # Create your views here.
 
 def greeting(request):
