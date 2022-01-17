@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Book , Author, Contact_us , Customer, Order, Request, Review
+from .models import Book , Author, Contact_us , Customer, Order, Request, Review , Book_sell
 
 # Register your models here.
 
@@ -27,9 +27,13 @@ class OrderAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ("review" , "book" , "email")
 
+class Book_sellAdmin(admin.ModelAdmin):
+    list_display = ("title" , "author" , "category" , "price" , "states" , "username")
+
 admin.site.register(Book , BookAdmin)
 admin.site.register(Customer , CustomerAdmin)
 admin.site.register(Request , RequestAdmin)
 admin.site.register(Contact_us , Contact_usAdmin)
 admin.site.register(Order , OrderAdmin)
 admin.site.register(Review , ReviewAdmin)
+admin.site.register(Book_sell , Book_sellAdmin)

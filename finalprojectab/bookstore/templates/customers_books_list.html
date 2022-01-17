@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table border=1 >
+        <tr>
+            <td colspan=6 align="center">
+                <h2>BOOKS</h2>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" >Category</td>
+            <td align="center">Name</td>
+            <td align="center">Description</td>
+            <td align="center">Price</td>
+            <td align="center">states</td>
+        </tr>
+    {% for x in all_books_list %}
+        <tr>
+            <td>{{ x.category }}</td>
+            <td><a href="/bookstore/customerbook/{{x.slug}}">{{ x.title }}</a></td>
+            <td>{{ x.description }}</td>
+            <td>${{ x.price }}</td>
+            <td >{{ x.get_states_display}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <BR>
+    <a href="/bookstore/">BACK</a>
+
+{%endblock%}

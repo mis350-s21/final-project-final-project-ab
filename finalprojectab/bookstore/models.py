@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.fields import IntegerField
 from django.forms.fields import EmailField
-
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 
@@ -71,3 +71,21 @@ class Review(models.Model):
     email = models.EmailField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     book = models.ForeignKey('Book', on_delete=models.CASCADE)
+
+class Book_sell(models.Model):
+    CONDITION = (
+        (0 , "New" ), 
+        (1 , "mint condition"), 
+        (2 , "used" ), 
+        (3 , "dameged" )
+    )
+    title = models.CharField(max_length=200, null=False , unique=True)
+    author = models.CharField(max_length=50 ,unique=True)
+    category = models.CharField(max_length=50 , null=False)
+    description = models.TextField(blank=True,)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    states = models.IntegerField(choices=CONDITION , default= 0)
+    username = models.ForeignKey(
+        get_user_model() , on_delete=models.CASCADE,
+    )
+    slug = models.SlugField(max_length=100 , null=False)

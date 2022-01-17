@@ -25,3 +25,11 @@ class ReviewForm(forms.ModelForm):
         widgets = {
             'book': forms.HiddenInput(),
         }
+
+class Book_sellForm(forms.ModelForm):
+    class Meta:
+        model = models.Book_sell
+        fields = ['title' , 'author' ,'slug' , 'category' , 'description' ,'price' , 'states' , 'username']
+        widgets = {
+            'username' : forms.HiddenInput(),
+        }
