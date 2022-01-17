@@ -17,3 +17,11 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = models.Order
         fields = ["customer_name" , "email" , "customer_num" , "address"  , "payment" ]
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = models.Review
+        fields = ['review', 'author', 'email', 'book']
+        widgets = {
+            'book': forms.HiddenInput(),
+        }

@@ -63,6 +63,11 @@ class Order(models.Model):
     address = models.CharField(max_length= 100 , null=False)
     payment = models.IntegerField(choices=METHOD , default= 0 )
     created_on = models.DateTimeField(auto_now_add=True)
-# this is a test
-# part 2
+#trial for review
 
+class Review(models.Model):
+    review = models.TextField()
+    author = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    book = models.ForeignKey('Book', on_delete=models.CASCADE)
