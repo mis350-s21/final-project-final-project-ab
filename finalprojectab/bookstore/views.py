@@ -44,13 +44,13 @@ def books_list_Category(request , s):
     if f.is_valid():
         f.save()
         return redirect('/bookstore/all_books/', s=books.slug)
-    data = {
+    c = {
         'slug_book' : books,
         'reviews': rs,
         'form': f,
     }
     
-    return render(request , 'book_details.html' , data)
+    return render(request , 'book_details.html' , c )
 
 def contact_us(request):
     cu = Contact_usForm(request.POST or None)
