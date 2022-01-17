@@ -36,14 +36,14 @@ def unavailable_books_list(request):
 
 def books_list_Category(request , s):
     books = Book.objects.get(slug = s)
-    rs = books.comment_set.all()
+    rs = books.review_set.all()
     f = ReviewForm(request.POST or None, initial={
         'book': books.id,
         'author': "Anonymous",
         })
     if f.is_valid():
         f.save()
-        return redirect('book_details.html', s=books.slug)
+        return redirect('/bookstore/all_books/', s=books.slug)
     data = {
         'slug_book' : books,
         'reviews': rs,
