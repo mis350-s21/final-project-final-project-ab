@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 
-from .models import Book
-from .forms import OrderForm, RequestForm , Contact_usForm 
+from .models import Book, Review
+from .forms import OrderForm, RequestForm , Contact_usForm , ReviewForm
 # Create your views here.
 
 def greeting(request):
@@ -36,12 +36,21 @@ def unavailable_books_list(request):
 
 def books_list_Category(request , s):
     books = Book.objects.get(slug = s)
-    
-    data = {
+    rs = books.review_set.all()
+    f = ReviewForm(request.POST or None, initial={
+        'book': books.id,
+        'author': "Anonymous",
+        })
+    if f.is_valid():
+        f.save()
+        return redirect('/bookstore/all_books/', s=books.slug)
+    c = {
         'slug_book' : books,
+        'reviews': rs,
+        'form': f,
     }
     
-    return render(request , 'book_details.html' , data)
+    return render(request , 'book_details.html' , c )
 
 def contact_us(request):
     cu = Contact_usForm(request.POST or None)

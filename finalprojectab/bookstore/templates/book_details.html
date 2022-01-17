@@ -19,15 +19,15 @@
                 <td>{{ slug_book.available }}</td>
             </tr>
         </table>
-        {% if review %}
+{% if reviews %}
 <h2>Review:</h2>
 <ul>
-    {% for c in book.review_set.all %}
+    {% for c in slug_book.review_set.all %}
     <li>
         {{ c.review }} by {{ c.author }} posted {{ c.created_on|timesince }} ago
     </li>
 <br>
-    the post is : {{ c.book.title }}
+    the book is : {{ c.book.title }}
     {% endfor %}
 </ul>
 {% else %}
