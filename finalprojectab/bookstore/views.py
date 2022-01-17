@@ -1,9 +1,9 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render , get_object_or_404
 
 from django.contrib.auth.decorators import login_required
 
-from .models import Book, Review
-from .forms import OrderForm, RequestForm , Contact_usForm , ReviewForm
+from .models import Book, Review , Book_sell
+from .forms import OrderForm, RequestForm , Contact_usForm , ReviewForm , Book_sellForm
 # Create your views here.
 
 def greeting(request):
@@ -78,3 +78,39 @@ def order(request):
 def thankyou(request): 
     data={}
     return render(request , 'thankyou.html' , data)
+
+def add_book(request):
+    f = Book_sellForm(request.POST or None , initial={
+        'username' : request.user
+    })
+    if f.is_valid():
+        f.save()
+        return redirect("thankyou")
+    data = {
+        'form' : f ,
+    }
+    
+    return render(request , "add_book.html" , data)
+
+def customers_books_list(request):
+    books = Book_sell.objects.all().order_by('title')
+    data = {
+        'all_books_list' : books,
+    }
+    return render(request , 'customers_books_list.html' , data)
+def customer_book_details(request , s):
+    books = Book_sell.objects.get(slug = s)
+    c = {'slug_book' : books}
+    return render(request , 'customer_book_details.html' , c )
+    
+def edit_book(request):
+    p = get_object_or_404(Book_sell ,id=id )
+    f = Book_sellForm(request.POST or None , instance=p )
+    if f.is_valid():
+        p = f.save(commit=False)
+        print("the book is:" , p.title)
+        return redirect("books_list_Category" , s=p.slug)
+    c = {
+        'form':f , 
+    }
+    return render(request , 'add_book.html' , c)

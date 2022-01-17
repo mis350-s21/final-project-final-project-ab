@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+        <table border=1 >
+            <tr>
+                <td colspan=6 align="center">
+                    <h2>{{ slug_book.title }}</h2>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" >Category</td>
+                <td align="center">Description</td>
+                <td align="center">Price</td>
+                <td align="center">available</td>
+            </tr>
+            <tr>
+                <td>{{ slug_book.category }}</td>
+                <td>{{ slug_book.description }}</td>
+                <td>${{ slug_book.price }}</td>
+                <td>{{ slug_book.get_states_display }}</td>
+            </tr>
+        </table>
+{% if reviews %}
+<h2>Review:</h2>
+<ul>
+    {% for c in slug_book.review_set.all %}
+    <li>
+        {{ c.review }} by {{ c.author }} posted {{ c.created_on|timesince }} ago
+    </li>
+<br>
+    the book is : {{ c.book.title }}
+    {% endfor %}
+</ul>
+{% else %}
+<h4>No reviews yet..</h4>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Review">
+</form>
+
+        <BR>
+        <a href="/bookstore/order/"><button>BUY NOW</button></a>
+        <br>
+        <a href="/bookstore/all_books">BACK</a>
+{%endblock%}
