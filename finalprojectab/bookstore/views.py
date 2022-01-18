@@ -115,3 +115,20 @@ def edit_book(request , s):
         return redirect("/bookstore/customers_books/" , s=p.slug)
 
     return render(request , 'add_book.html' , c)
+
+
+def delete_book(request, s):
+    p = get_object_or_404(Book_sell ,slug=s)
+    c = {
+        'message': f"delete post {p.title}",
+    }
+    if "confirm" in request.GET:
+        p.delete()
+        return redirect('/bookstore/customers_books/')
+    elif "cancel" in request.GET:
+        return redirect('/bookstore/customers_books/')
+    return render(request, 'confirm.html', c)
+
+def about(request): 
+    data={}
+    return render(request , 'about.html' , data)

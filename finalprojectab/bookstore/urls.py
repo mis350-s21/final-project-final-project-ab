@@ -15,4 +15,6 @@ urlpatterns = [
     path('customers_books/', views.customers_books_list),
     path('customerbook/<str:s>' , views.customer_book_details),
     path('edit_book/<str:s>/' , views.edit_book , name = "edit_book"),
+    path('delete_book/<str:s>/' , views.delete_book , name = "delete_book"),
+    path('about/' , views.about , name = "about" ),
 ]
