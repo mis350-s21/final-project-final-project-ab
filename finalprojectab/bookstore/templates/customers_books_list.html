@@ -20,6 +20,7 @@
             <td>{{ x.description }}</td>
             <td>${{ x.price }}</td>
             <td >{{ x.get_states_display}}</td>
+            <td><a href="/bookstore/edit_book/{{x.slug}}/"><button type="button" class="btn btn-primary">EDIT</button></a></td>
         </tr>
     {% endfor %}
     </table>
