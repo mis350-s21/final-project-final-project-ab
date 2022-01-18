@@ -103,14 +103,15 @@ def customer_book_details(request , s):
     c = {'slug_book' : books}
     return render(request , 'customer_book_details.html' , c )
     
-def edit_book(request):
-    p = get_object_or_404(Book_sell ,id=id )
+def edit_book(request , s):
+    p = get_object_or_404(Book_sell ,slug=s )
     f = Book_sellForm(request.POST or None , instance=p )
-    if f.is_valid():
-        p = f.save(commit=False)
-        print("the book is:" , p.title)
-        return redirect("books_list_Category" , s=p.slug)
     c = {
+        "book" : p ,
         'form':f , 
-    }
+    } 
+    if f.is_valid():
+        f.save()
+        return redirect("/bookstore/customers_books/" , s=p.slug)
+
     return render(request , 'add_book.html' , c)
