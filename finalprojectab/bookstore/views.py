@@ -85,12 +85,16 @@ def add_book(request):
     })
     if f.is_valid():
         f.save()
-        return redirect("thankyou")
+        return redirect("thankyou_add")
     data = {
         'form' : f ,
     }
     
     return render(request , "add_book.html" , data)
+
+def thankyou_add(request): 
+    data={}
+    return render(request , 'thankyou_add.html' , data)
 
 def customers_books_list(request):
     books = Book_sell.objects.all().order_by('title')

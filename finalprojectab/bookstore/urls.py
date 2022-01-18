@@ -12,6 +12,7 @@ urlpatterns = [
     path('order/' , views.order , name= "order" ),
     path('thankyou/' , views.thankyou , name = "thankyou" ) , 
     path('add_book/' , views.add_book ) , 
+    path('thankyou_add/' , views.thankyou_add , name = "thankyou_add" ) ,
     path('customers_books/', views.customers_books_list),
     path('customerbook/<str:s>' , views.customer_book_details),
     path('edit_book/<str:s>/' , views.edit_book , name = "edit_book"),
